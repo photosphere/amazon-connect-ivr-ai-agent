@@ -1,0 +1,349 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "eccce5f7-14e6-449e-91a1-79aab2bfb178",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 0,
+      "y": 20
+    },
+    "ActionMetadata": {
+      "2c27f89c-81c0-4110-98c3-db2e2fa15ab7": {
+        "position": {
+          "x": 1400,
+          "y": 260
+        }
+      },
+      "47480c3a-fb85-45d3-bcbd-42ded95b3724": {
+        "position": {
+          "x": 1120,
+          "y": 0
+        }
+      },
+      "da2b9239-75e5-4500-ac6a-4482cf6112aa": {
+        "position": {
+          "x": 280,
+          "y": 1040
+        },
+        "parameters": {
+          "EventHooks": {
+            "AgentWhisper": {
+              "displayName": "Default agent whisper - Transfer to Agent"
+            }
+          }
+        },
+        "contactFlow": {
+          "text": "Default agent whisper - Transfer to Agent",
+          "id": "arn:aws:connect:us-west-2:991727053196:instance/6fdfea84-2bff-4e4e-91e9-d8eacc77f6f3/contact-flow/9f72b64d-591d-44b2-a054-d611518edf2f"
+        },
+        "customerOrAgent": false
+      },
+      "2a4919b9-5a01-47d0-8f17-9876061bd9ce": {
+        "position": {
+          "x": 280,
+          "y": 520
+        },
+        "parameters": {
+          "EventHooks": {
+            "CustomerQueue": {
+              "displayName": "Default customer queue - Transfer to Agent"
+            }
+          }
+        },
+        "contactFlow": {
+          "text": "Default customer queue - Transfer to Agent",
+          "id": "arn:aws:connect:us-west-2:991727053196:instance/6fdfea84-2bff-4e4e-91e9-d8eacc77f6f3/contact-flow/66e2133b-3bb6-4f67-a9f4-c607792f190f"
+        },
+        "customerOrAgent": true
+      },
+      "eccce5f7-14e6-449e-91a1-79aab2bfb178": {
+        "position": {
+          "x": 314.4,
+          "y": -56.8
+        }
+      },
+      "3c8b09de-9def-47e3-8ab8-f5b73d8e6d08": {
+        "position": {
+          "x": 286.4,
+          "y": 146.4
+        }
+      },
+      "0545d642-7005-45c1-a06a-5d06dd99cb30": {
+        "position": {
+          "x": 280,
+          "y": 780
+        },
+        "parameters": {
+          "EventHooks": {
+            "DefaultAgentUI": {
+              "displayName": "tp ScreenPop Flow",
+              "useSetEventHook": true
+            }
+          }
+        }
+      },
+      "2c1bb3e4-d5ba-401e-b698-d6a26573c7b3": {
+        "position": {
+          "x": 1120,
+          "y": 260
+        },
+        "parameters": {
+          "QueueId": {
+            "displayName": "BasicQueue"
+          }
+        },
+        "queue": {
+          "text": "BasicQueue"
+        }
+      },
+      "095aa1d2-b367-482f-800e-013a3ad2b4a2": {
+        "position": {
+          "x": 840,
+          "y": 0
+        },
+        "parameters": {
+          "Attributes": {
+            "QueueName": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicParams": [
+          "QueueName"
+        ]
+      },
+      "fe0616db-08f9-48c0-a705-c2e1eac9721e": {
+        "position": {
+          "x": 560,
+          "y": 260
+        },
+        "parameters": {
+          "ThirdPartyPhoneNumber": {
+            "countryCode": "US"
+          }
+        },
+        "CountryCode": "us"
+      },
+      "f56155ef-be84-444e-aff9-97dd30887970": {
+        "position": {
+          "x": 840,
+          "y": 260
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "ConnectGetCustomerModel"
+          }
+        },
+        "dynamicMetadata": {}
+      }
+    },
+    "Annotations": [],
+    "name": "Customer Inbound - AI IVR and Agent Transfer",
+    "description": "Answers the inbound call, hands the caller to the AI self-service IVR line, then looks up the captured model number and routes the caller to an agent queue.",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {},
+      "Identifier": "2c27f89c-81c0-4110-98c3-db2e2fa15ab7",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {},
+      "Identifier": "47480c3a-fb85-45d3-bcbd-42ded95b3724",
+      "Type": "TransferContactToQueue",
+      "Transitions": {
+        "NextAction": "2c27f89c-81c0-4110-98c3-db2e2fa15ab7",
+        "Errors": [
+          {
+            "NextAction": "2c27f89c-81c0-4110-98c3-db2e2fa15ab7",
+            "ErrorType": "QueueAtCapacity"
+          },
+          {
+            "NextAction": "2c27f89c-81c0-4110-98c3-db2e2fa15ab7",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "EventHooks": {
+          "AgentWhisper": "arn:aws:connect:us-west-2:991727053196:instance/6fdfea84-2bff-4e4e-91e9-d8eacc77f6f3/contact-flow/9f72b64d-591d-44b2-a054-d611518edf2f"
+        }
+      },
+      "Identifier": "da2b9239-75e5-4500-ac6a-4482cf6112aa",
+      "Type": "UpdateContactEventHooks",
+      "Transitions": {
+        "NextAction": "0545d642-7005-45c1-a06a-5d06dd99cb30",
+        "Errors": [
+          {
+            "NextAction": "0545d642-7005-45c1-a06a-5d06dd99cb30",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "EventHooks": {
+          "CustomerQueue": "arn:aws:connect:us-west-2:991727053196:instance/6fdfea84-2bff-4e4e-91e9-d8eacc77f6f3/contact-flow/66e2133b-3bb6-4f67-a9f4-c607792f190f"
+        }
+      },
+      "Identifier": "2a4919b9-5a01-47d0-8f17-9876061bd9ce",
+      "Type": "UpdateContactEventHooks",
+      "Transitions": {
+        "NextAction": "da2b9239-75e5-4500-ac6a-4482cf6112aa",
+        "Errors": [
+          {
+            "NextAction": "da2b9239-75e5-4500-ac6a-4482cf6112aa",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "FlowLoggingBehavior": "Enabled"
+      },
+      "Identifier": "eccce5f7-14e6-449e-91a1-79aab2bfb178",
+      "Type": "UpdateFlowLoggingBehavior",
+      "Transitions": {
+        "NextAction": "3c8b09de-9def-47e3-8ab8-f5b73d8e6d08"
+      }
+    },
+    {
+      "Parameters": {
+        "VoiceBehavior": {
+          "VoiceRecordingBehavior": {
+            "RecordedParticipants": [
+              "Agent",
+              "Customer"
+            ],
+            "IVRRecordingBehavior": "Enabled"
+          },
+          "VoiceAnalyticsBehavior": {
+            "Enabled": "False"
+          }
+        }
+      },
+      "Identifier": "3c8b09de-9def-47e3-8ab8-f5b73d8e6d08",
+      "Type": "UpdateContactRecordingAndAnalyticsBehavior",
+      "Transitions": {
+        "NextAction": "2a4919b9-5a01-47d0-8f17-9876061bd9ce",
+        "Errors": [
+          {
+            "NextAction": "2a4919b9-5a01-47d0-8f17-9876061bd9ce",
+            "ErrorType": "NoMatchingError"
+          },
+          {
+            "NextAction": "2a4919b9-5a01-47d0-8f17-9876061bd9ce",
+            "ErrorType": "ChannelMismatch"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "EventHooks": {
+          "DefaultAgentUI": "arn:aws:connect:us-west-2:991727053196:instance/6fdfea84-2bff-4e4e-91e9-d8eacc77f6f3/contact-flow/77107802-0401-4122-892b-988e1ca9b3a8"
+        }
+      },
+      "Identifier": "0545d642-7005-45c1-a06a-5d06dd99cb30",
+      "Type": "UpdateContactEventHooks",
+      "Transitions": {
+        "NextAction": "fe0616db-08f9-48c0-a705-c2e1eac9721e",
+        "Errors": [
+          {
+            "NextAction": "fe0616db-08f9-48c0-a705-c2e1eac9721e",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "QueueId": "arn:aws:connect:us-west-2:991727053196:instance/6fdfea84-2bff-4e4e-91e9-d8eacc77f6f3/queue/3d01ab0d-e069-44e7-9950-9791d2a0de1b"
+      },
+      "Identifier": "2c1bb3e4-d5ba-401e-b698-d6a26573c7b3",
+      "Type": "UpdateContactTargetQueue",
+      "Transitions": {
+        "NextAction": "47480c3a-fb85-45d3-bcbd-42ded95b3724",
+        "Errors": [
+          {
+            "NextAction": "47480c3a-fb85-45d3-bcbd-42ded95b3724",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "QueueName": "$.External.ModelNumber"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "095aa1d2-b367-482f-800e-013a3ad2b4a2",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "2c1bb3e4-d5ba-401e-b698-d6a26573c7b3",
+        "Errors": [
+          {
+            "NextAction": "2c1bb3e4-d5ba-401e-b698-d6a26573c7b3",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ThirdPartyPhoneNumber": "+15404695307",
+        "ThirdPartyConnectionTimeLimitSeconds": "60",
+        "ContinueFlowExecution": "True"
+      },
+      "Identifier": "fe0616db-08f9-48c0-a705-c2e1eac9721e",
+      "Type": "TransferParticipantToThirdParty",
+      "Transitions": {
+        "NextAction": "f56155ef-be84-444e-aff9-97dd30887970",
+        "Errors": [
+          {
+            "NextAction": "2c1bb3e4-d5ba-401e-b698-d6a26573c7b3",
+            "ErrorType": "CallFailed"
+          },
+          {
+            "NextAction": "2c1bb3e4-d5ba-401e-b698-d6a26573c7b3",
+            "ErrorType": "ConnectionTimeLimitExceeded"
+          },
+          {
+            "NextAction": "2c1bb3e4-d5ba-401e-b698-d6a26573c7b3",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:us-west-2:991727053196:function:ConnectGetCustomerModel",
+        "InvocationTimeLimitSeconds": "8",
+        "InvocationType": "SYNCHRONOUS",
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "f56155ef-be84-444e-aff9-97dd30887970",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "095aa1d2-b367-482f-800e-013a3ad2b4a2",
+        "Errors": [
+          {
+            "NextAction": "095aa1d2-b367-482f-800e-013a3ad2b4a2",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}

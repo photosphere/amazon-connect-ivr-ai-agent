@@ -1,0 +1,641 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "5084e643-e212-425b-8fc4-3543c2e09242",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": -1320,
+      "y": -1080
+    },
+    "ActionMetadata": {
+      "27b135bd-dcce-4079-ac88-520d95af11aa": {
+        "position": {
+          "x": -1120,
+          "y": -780
+        },
+        "children": [
+          "17426a20-bf31-4de8-aca4-80c22e913517"
+        ],
+        "parameters": {
+          "TextToSpeechVoice": {
+            "languageCode": "en-US"
+          },
+          "TextToSpeechEngine": {
+            "voiceProvider": "connect:agentic"
+          }
+        },
+        "overrideConsoleVoice": true,
+        "fragments": {
+          "SetContactData": "17426a20-bf31-4de8-aca4-80c22e913517"
+        },
+        "overrideLanguageAttribute": true
+      },
+      "17426a20-bf31-4de8-aca4-80c22e913517": {
+        "position": {
+          "x": -1120,
+          "y": -780
+        },
+        "dynamicParams": []
+      },
+      "cb5f5efd-125c-49e1-b72f-a8037d364bac": {
+        "position": {
+          "x": -280,
+          "y": -780
+        },
+        "children": [
+          "6ad1652a-4e39-4667-8e34-cc46092962bc",
+          "08d99116-3958-4e97-aab7-789fb3aa2a78"
+        ],
+        "parameters": {
+          "WisdomAssistantArn": {
+            "useAIAgentDropdown": true,
+            "aiAgentName": "SelfServiceOrchestrator_Voice",
+            "aiAgentVersionArn": "arn:aws:wisdom:us-west-2:991727053196:ai-agent/14fe4db3-cca0-4c91-b484-ee7dc6a0e9aa/a0c8d2a9-1d13-4d46-9cc7-6418eac7365e:$LATEST"
+          }
+        },
+        "fragments": {
+          "SetContactData": "6ad1652a-4e39-4667-8e34-cc46092962bc"
+        },
+        "useAIAgentDropdown": true,
+        "aiAgentName": "SelfServiceOrchestrator_Voice",
+        "aiAgentVersionArn": "arn:aws:wisdom:us-west-2:991727053196:ai-agent/14fe4db3-cca0-4c91-b484-ee7dc6a0e9aa/a0c8d2a9-1d13-4d46-9cc7-6418eac7365e:$LATEST"
+      },
+      "6ad1652a-4e39-4667-8e34-cc46092962bc": {
+        "position": {
+          "x": -280,
+          "y": -780
+        },
+        "dynamicParams": []
+      },
+      "08d99116-3958-4e97-aab7-789fb3aa2a78": {
+        "position": {
+          "x": -280,
+          "y": -780
+        },
+        "parameters": {
+          "Text": {
+            "useDynamic": true
+          },
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "TestBotAlias",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "AgenticAISupport_EN_Bot"
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "x-amz-lex:q-in-connect:ai-agent-arn": false
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "AgenticAISupport_EN_Bot",
+        "lexV2BotAliasName": "TestBotAlias",
+        "useDynamic": true,
+        "conditionMetadata": []
+      },
+      "5084e643-e212-425b-8fc4-3543c2e09242": {
+        "position": {
+          "x": -1120,
+          "y": -1040
+        }
+      },
+      "2e9a4e1b-7513-4221-a247-84324ac176ec": {
+        "position": {
+          "x": 280,
+          "y": -1040
+        }
+      },
+      "51f44408-b4d3-4c3a-a448-20d85d33dbe2": {
+        "position": {
+          "x": 280,
+          "y": -780
+        }
+      },
+      "19f893e5-3f63-4ea7-835a-a54461d41a4c": {
+        "position": {
+          "x": -840,
+          "y": -780
+        }
+      },
+      "d84f24d8-7970-4686-9493-990dd28c72ff": {
+        "position": {
+          "x": 280,
+          "y": -520
+        }
+      },
+      "d8a5db31-3541-430d-97d4-6a478dff5b81": {
+        "position": {
+          "x": 0,
+          "y": -780
+        }
+      },
+      "029d8a40-c81f-415f-91e4-3513039ff6f4": {
+        "position": {
+          "x": 0,
+          "y": -520
+        },
+        "parameters": {
+          "FlowAttributes": {
+            "ModelNumber": {
+              "Value": {
+                "useDynamic": true
+              }
+            }
+          }
+        }
+      },
+      "da3fb88d-be8f-450b-bf47-5c17abf3b35e": {
+        "position": {
+          "x": 560,
+          "y": -780
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "ConnectSaveCustomerModel"
+          },
+          "LambdaInvocationAttributes": {
+            "ModelNumber": {
+              "useDynamic": true
+            }
+          }
+        },
+        "dynamicMetadata": {
+          "ModelNumber": true
+        }
+      },
+      "2badefc0-ae32-4707-9080-59bdc0fd2ae3": {
+        "position": {
+          "x": 851.2,
+          "y": -769.6
+        }
+      },
+      "1b802fff-ed9b-41c6-a2bf-ab89bb4fd847": {
+        "position": {
+          "x": -840,
+          "y": -1040
+        },
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "e7e837c7-3ea9-4362-9654-926b33433abf",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "VOICE"
+          }
+        ]
+      },
+      "ba473807-1252-4694-b85d-4b3f9fa623f3": {
+        "position": {
+          "x": -560,
+          "y": -780
+        }
+      },
+      "28a2957c-b622-4409-89b7-fbb71bcde3c3": {
+        "position": {
+          "x": 0,
+          "y": -1040
+        },
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "6b160a33-cdf0-4e54-a9c4-fbeb8ceb3e5c",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "Complete"
+          },
+          {
+            "id": "5e9d82e8-1401-4832-b057-89413e0becb1",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "Escalate"
+          },
+          {
+            "id": "a2b7aac2-3fe2-496d-a5dc-0dcb1d2b3a12",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "GetModelNumber"
+          }
+        ]
+      },
+      "dbeb4215-d323-478e-b31e-f7d2a86638dd": {
+        "position": {
+          "x": -280,
+          "y": -520
+        }
+      },
+      "62262eeb-b890-4799-a6a3-7f8917eaf796": {
+        "position": {
+          "x": -280,
+          "y": -1040
+        }
+      }
+    },
+    "Annotations": [],
+    "name": "AI Self-Service IVR - Model Capture",
+    "description": "Amazon Q in Connect AI agent with a Lex V2 bot handles the caller, then stores the captured product model number for the agent handoff.",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "TextToSpeechVoice": "KATIE",
+        "TextToSpeechEngine": "connect:agentic"
+      },
+      "Identifier": "27b135bd-dcce-4079-ac88-520d95af11aa",
+      "Type": "UpdateContactTextToSpeechVoice",
+      "Transitions": {
+        "NextAction": "17426a20-bf31-4de8-aca4-80c22e913517",
+        "Errors": [
+          {
+            "NextAction": "1b802fff-ed9b-41c6-a2bf-ab89bb4fd847",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LanguageCode": "en-US"
+      },
+      "Identifier": "17426a20-bf31-4de8-aca4-80c22e913517",
+      "Type": "UpdateContactData",
+      "Transitions": {
+        "NextAction": "1b802fff-ed9b-41c6-a2bf-ab89bb4fd847",
+        "Errors": [
+          {
+            "NextAction": "1b802fff-ed9b-41c6-a2bf-ab89bb4fd847",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "WisdomAssistantArn": "arn:aws:wisdom:us-west-2:991727053196:assistant/14fe4db3-cca0-4c91-b484-ee7dc6a0e9aa"
+      },
+      "Identifier": "cb5f5efd-125c-49e1-b72f-a8037d364bac",
+      "Type": "CreateWisdomSession",
+      "Transitions": {
+        "NextAction": "6ad1652a-4e39-4667-8e34-cc46092962bc",
+        "Errors": [
+          {
+            "NextAction": "dbeb4215-d323-478e-b31e-f7d2a86638dd",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "WisdomSessionArn": "$.Wisdom.SessionArn"
+      },
+      "Identifier": "6ad1652a-4e39-4667-8e34-cc46092962bc",
+      "Type": "UpdateContactData",
+      "Transitions": {
+        "NextAction": "08d99116-3958-4e97-aab7-789fb3aa2a78",
+        "Errors": [
+          {
+            "NextAction": "dbeb4215-d323-478e-b31e-f7d2a86638dd",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "$.FlowAttributes.welcome_msg",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-west-2:991727053196:bot-alias/RLOKJUU29U/TSTALIASID"
+        },
+        "LexSessionAttributes": {
+          "x-amz-lex:q-in-connect:ai-agent-arn": "arn:aws:wisdom:us-west-2:991727053196:ai-agent/14fe4db3-cca0-4c91-b484-ee7dc6a0e9aa/a0c8d2a9-1d13-4d46-9cc7-6418eac7365e:$LATEST"
+        }
+      },
+      "Identifier": "08d99116-3958-4e97-aab7-789fb3aa2a78",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "dbeb4215-d323-478e-b31e-f7d2a86638dd",
+        "Errors": [
+          {
+            "NextAction": "28a2957c-b622-4409-89b7-fbb71bcde3c3",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "dbeb4215-d323-478e-b31e-f7d2a86638dd",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "FlowLoggingBehavior": "Enabled"
+      },
+      "Identifier": "5084e643-e212-425b-8fc4-3543c2e09242",
+      "Type": "UpdateFlowLoggingBehavior",
+      "Transitions": {
+        "NextAction": "27b135bd-dcce-4079-ac88-520d95af11aa"
+      }
+    },
+    {
+      "Parameters": {
+        "FlowAttributes": {
+          "ModelNumber": {
+            "Value": "Complete"
+          }
+        }
+      },
+      "Identifier": "2e9a4e1b-7513-4221-a247-84324ac176ec",
+      "Type": "UpdateFlowAttributes",
+      "Transitions": {
+        "NextAction": "da3fb88d-be8f-450b-bf47-5c17abf3b35e",
+        "Errors": [
+          {
+            "NextAction": "da3fb88d-be8f-450b-bf47-5c17abf3b35e",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "FlowAttributes": {
+          "ModelNumber": {
+            "Value": "Escalate"
+          }
+        }
+      },
+      "Identifier": "51f44408-b4d3-4c3a-a448-20d85d33dbe2",
+      "Type": "UpdateFlowAttributes",
+      "Transitions": {
+        "NextAction": "da3fb88d-be8f-450b-bf47-5c17abf3b35e",
+        "Errors": [
+          {
+            "NextAction": "da3fb88d-be8f-450b-bf47-5c17abf3b35e",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "19f893e5-3f63-4ea7-835a-a54461d41a4c",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "FlowAttributes": {
+          "ModelNumber": {
+            "Value": "NoMatch"
+          }
+        }
+      },
+      "Identifier": "d84f24d8-7970-4686-9493-990dd28c72ff",
+      "Type": "UpdateFlowAttributes",
+      "Transitions": {
+        "NextAction": "da3fb88d-be8f-450b-bf47-5c17abf3b35e",
+        "Errors": [
+          {
+            "NextAction": "da3fb88d-be8f-450b-bf47-5c17abf3b35e",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "SkipWhenDTMFBufferEnabled": "false",
+        "Text": "Got it. It's transfering to our agent. Please wait."
+      },
+      "Identifier": "d8a5db31-3541-430d-97d4-6a478dff5b81",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "029d8a40-c81f-415f-91e4-3513039ff6f4",
+        "Errors": [
+          {
+            "NextAction": "029d8a40-c81f-415f-91e4-3513039ff6f4",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "FlowAttributes": {
+          "ModelNumber": {
+            "Value": "$.Lex.SessionAttributes.modelNumber"
+          }
+        }
+      },
+      "Identifier": "029d8a40-c81f-415f-91e4-3513039ff6f4",
+      "Type": "UpdateFlowAttributes",
+      "Transitions": {
+        "NextAction": "da3fb88d-be8f-450b-bf47-5c17abf3b35e",
+        "Errors": [
+          {
+            "NextAction": "da3fb88d-be8f-450b-bf47-5c17abf3b35e",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:us-west-2:991727053196:function:ConnectSaveCustomerModel",
+        "InvocationTimeLimitSeconds": "8",
+        "InvocationType": "SYNCHRONOUS",
+        "LambdaInvocationAttributes": {
+          "ModelNumber": "$.FlowAttributes.ModelNumber"
+        },
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "da3fb88d-be8f-450b-bf47-5c17abf3b35e",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "2badefc0-ae32-4707-9080-59bdc0fd2ae3",
+        "Errors": [
+          {
+            "NextAction": "2badefc0-ae32-4707-9080-59bdc0fd2ae3",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "2badefc0-ae32-4707-9080-59bdc0fd2ae3",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Channel"
+      },
+      "Identifier": "1b802fff-ed9b-41c6-a2bf-ab89bb4fd847",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "19f893e5-3f63-4ea7-835a-a54461d41a4c",
+        "Conditions": [
+          {
+            "NextAction": "ba473807-1252-4694-b85d-4b3f9fa623f3",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "VOICE"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "19f893e5-3f63-4ea7-835a-a54461d41a4c",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "VoiceBehavior": {
+          "VoiceRecordingBehavior": {
+            "RecordedParticipants": [
+              "Agent",
+              "Customer"
+            ],
+            "IVRRecordingBehavior": "Enabled"
+          },
+          "VoiceAnalyticsBehavior": {
+            "Enabled": "True",
+            "AnalyticsLanguage": "en-US",
+            "AnalyticsModes": [
+              "RealTime",
+              "AutomatedInteraction"
+            ],
+            "ConversationalAnalyticsRedactionConfiguration": {
+              "Enabled": "False"
+            },
+            "SentimentConfiguration": {
+              "Enabled": "True"
+            }
+          }
+        }
+      },
+      "Identifier": "ba473807-1252-4694-b85d-4b3f9fa623f3",
+      "Type": "UpdateContactRecordingAndAnalyticsBehavior",
+      "Transitions": {
+        "NextAction": "62262eeb-b890-4799-a6a3-7f8917eaf796",
+        "Errors": [
+          {
+            "NextAction": "62262eeb-b890-4799-a6a3-7f8917eaf796",
+            "ErrorType": "NoMatchingError"
+          },
+          {
+            "NextAction": "62262eeb-b890-4799-a6a3-7f8917eaf796",
+            "ErrorType": "ChannelMismatch"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Lex.SessionAttributes.Tool"
+      },
+      "Identifier": "28a2957c-b622-4409-89b7-fbb71bcde3c3",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "d84f24d8-7970-4686-9493-990dd28c72ff",
+        "Conditions": [
+          {
+            "NextAction": "2e9a4e1b-7513-4221-a247-84324ac176ec",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Complete"
+              ]
+            }
+          },
+          {
+            "NextAction": "51f44408-b4d3-4c3a-a448-20d85d33dbe2",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Escalate"
+              ]
+            }
+          },
+          {
+            "NextAction": "d8a5db31-3541-430d-97d4-6a478dff5b81",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "GetModelNumber"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "d84f24d8-7970-4686-9493-990dd28c72ff",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "FlowAttributes": {
+          "welcome_msg": {
+            "Value": "Sorry I don't find the answer. Could you please provide more detail."
+          }
+        }
+      },
+      "Identifier": "dbeb4215-d323-478e-b31e-f7d2a86638dd",
+      "Type": "UpdateFlowAttributes",
+      "Transitions": {
+        "NextAction": "cb5f5efd-125c-49e1-b72f-a8037d364bac",
+        "Errors": [
+          {
+            "NextAction": "cb5f5efd-125c-49e1-b72f-a8037d364bac",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "FlowAttributes": {
+          "welcome_msg": {
+            "Value": "How can I help you today?"
+          }
+        }
+      },
+      "Identifier": "62262eeb-b890-4799-a6a3-7f8917eaf796",
+      "Type": "UpdateFlowAttributes",
+      "Transitions": {
+        "NextAction": "cb5f5efd-125c-49e1-b72f-a8037d364bac",
+        "Errors": [
+          {
+            "NextAction": "cb5f5efd-125c-49e1-b72f-a8037d364bac",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}
