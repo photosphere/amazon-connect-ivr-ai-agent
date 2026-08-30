@@ -75,7 +75,7 @@
         "parameters": {
           "EventHooks": {
             "DefaultAgentUI": {
-              "displayName": "tp ScreenPop Flow",
+              "displayName": "Customer Inbound - ScreenPop",
               "useSetEventHook": true
             }
           }
