@@ -500,10 +500,14 @@ if aws iam get-role --role-name "$ROLE_NAME" >/dev/null 2>&1; then
 else
   # 繁忙的账号可能已达 RolesPerAccount 配额，此处失败时原始报错完全看不出
   # 该怎么继续。
+  #
+  # 角色描述必须是纯 ASCII/Latin-1：IAM 对 description 的校验正则是
+  # [\u0009\u000A\u000D\u0020-\u007E\u00A1-\u00FF]*，中文字符会被
+  # ValidationError 拒绝，所以这里固定用英文。
   if ! CREATE_ROLE_ERR="$(aws iam create-role \
       --role-name "$ROLE_NAME" \
       --assume-role-policy-document "file://$TRUST_DOC" \
-      --description "Amazon Connect 客户型号相关 Lambda 函数的执行角色" \
+      --description "Execution role for the Amazon Connect customer model Lambda functions" \
       --no-cli-pager 2>&1 >/dev/null)"; then
     if grep -qi "RolesPerAccount\|LimitExceeded" <<<"$CREATE_ROLE_ERR"; then
       die "$(printf '当前账号已达 IAM 角色配额上限，无法创建角色 %s。\n         请重新运行，并在「IAM 执行角色名」处填入一个已存在的 Lambda\n         执行角色；或删除无用角色，或申请提升配额。\n         AWS 返回：%s' "$ROLE_NAME" "$CREATE_ROLE_ERR")"
