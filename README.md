@@ -170,10 +170,17 @@ EXPECTED_EDITION_2="Amazon Connect Customer" ./deploy_connect_lambdas.sh
 | | 入参 | 返回 |
 |---|---|---|
 | `ConnectSaveCustomerModel` | `CustomerNumber`、`ModelNumber` | `Status`、`CustomerNumber`、`ModelNumber`、`CreatedAt` |
-| `ConnectGetCustomerModel` | `CustomerNumber` | `Status`、`Found`、`CustomerNumber`、`ModelNumber`、`CreatedAt` |
+| `ConnectGetCustomerModel` | `CustomerNumber` | `Status`、`Found`、`CustomerNumber`、`ModelNumber`、`Category`、`Description`、`CreatedAt` |
 | `ConnectGetAgentName` | `LastAgentID`（Connect 用户 ID） | `Status`、`Found`、`LastAgentID`、`LastAgentName` |
 
 未传 `CustomerNumber` 时，Save 与 Get 都回退到来电者号码（`Details.ContactData.CustomerEndpoint.Address`）。Get 函数先用归一化后的号码查询，再尝试几种常见变体，因此 `+15551234567` 与 `15551234567` 会命中同一条记录。
+
+DynamoDB 里存的 `ModelNumber` 有两种形式，Get 函数都能解析并拆成 `ModelNumber` / `Category` / `Description` 三个返回属性：
+
+- 只有型号：`Deco X50(CA)` → `ModelNumber=Deco X50(CA)`，另两个为空字符串
+- 带标签、`|` 分隔：`model: Deco X50(CA) | category: Deco | description: keeps dropping Wi-Fi`
+
+标签不区分大小写、顺序任意、可以只出现其中一部分（`model` / `modelnumber` / `model number`、`category`、`description` / `desc` / `issue`）。全角 `｜` 和 `：` 会先被归一化。若分段完全没有标签，则按 型号 → 类别 → 描述 的位置顺序赋值。表项上如果本身带独立的 `Category` / `Description` 属性，优先使用它们。
 
 `ConnectGetAgentName` 的实例 ID 取自环境变量 `CONNECT_INSTANCE_ID`（部署时写入实例 #1），未设置时回退到 `Details.ContactData.InstanceARN`。坐席已删除或 ID 属于其他实例时返回 `Found=false` 和空的 `LastAgentName`，不抛异常，弹屏照常渲染。
 
